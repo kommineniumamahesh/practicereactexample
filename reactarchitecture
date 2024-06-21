@@ -1,4 +1,4 @@
-### 2. Architecture Explanation
+### 2. Architecture Explanation (with Vite as the Build Tool)
 
 The architecture of the React.js project is designed to be modular, scalable, and maintainable. Below is a detailed explanation of each architectural component and its role in the project:
 
@@ -55,14 +55,14 @@ The architecture of the React.js project is designed to be modular, scalable, an
 - **Interceptors:** Provides request and response interceptors to manage headers, authentication tokens, and other request/response modifications.
 - **Asynchronous Operations:** Makes it easy to handle asynchronous operations and manage data fetching and updating within the application.
 
-#### Build Tool: Webpack (or Create React App)
+#### Build Tool: Vite
 
-**Description:** Webpack is a module bundler for JavaScript applications. Create React App is a CLI tool that sets up a modern React project with sensible defaults, including Webpack configuration.
+**Description:** Vite is a modern build tool that offers a fast development environment and optimized build process for modern web projects. It leverages native ES modules and provides a highly optimized development server.
 
 **Role in the Project:**
-- **Module Bundling:** Webpack bundles JavaScript modules, CSS, and other assets into optimized bundles for production.
-- **Development Server:** Provides a development server with hot module replacement for efficient development workflows.
-- **Configuration:** Allows for extensive customization of the build process, including loaders and plugins for various file types and optimizations.
+- **Fast Development:** Vite offers a lightning-fast development experience with instant hot module replacement (HMR).
+- **Optimized Builds:** Vite optimizes the build process by pre-building dependencies and leveraging Rollup for bundling, resulting in smaller and faster production builds.
+- **Simplicity:** Vite requires minimal configuration to get started, making it easier to set up and maintain compared to traditional bundlers.
 
 #### Testing: Jest, React Testing Library, Cypress
 
