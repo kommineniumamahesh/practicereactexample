@@ -1,179 +1,72 @@
-Yes, Node.js is essential for running the development and build processes of the React.js project. It provides the runtime environment for tools like Vite, which are used to build and serve the project. Here's the updated high-level design document including Node.js as a prerequisite:
+// FileUpload.jsx
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
 
----
+const FileUpload = () => {
+  const [jsonData, setJsonData] = useState(null);
 
-## High-Level Design Document for React.js Project
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      readFile(file);
+    }
+  };
 
-### 1. Project Overview
+  const readFile = (file) => {
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const binaryStr = event.target.result;
+      const workbook = XLSX.read(binaryStr, { type: 'binary' });
+      const sheetName = workbook.SheetNames[0];
+      const worksheet = workbook.Sheets[sheetName];
+      const json = XLSX.utils.sheet_to_json(worksheet);
+      setJsonData(json);
+    };
+    reader.readAsBinaryString(file);
+  };
 
-**Project Name:** Task Management Application  
-**Project Description:** This web application provides users with an intuitive interface to manage their tasks. Users can register, log in, create, view, edit, and delete tasks. The application also includes user profile management and reporting features.
+  const handleShowJson = () => {
+    if (jsonData) {
+      alert(JSON.stringify(jsonData, null, 2));
+    } else {
+      alert("No data available. Please upload a file first.");
+    }
+  };
 
-### 2. Architecture
+  return (
+    <div style={styles.container}>
+      <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} style={styles.fileInput} />
+      <button onClick={handleShowJson} style={styles.button}>Show JSON</button>
+    </div>
+  );
+};
 
-**Frontend Framework:** React.js  
-**State Management:** Redux (or Context API)  
-**Routing:** React Router  
-**UI Library:** Material-UI (or any preferred UI library)  
-**Form Handling:** React Hook Form  
-**API Integration:** Axios for HTTP requests  
-**Build Tool:** Vite  
-**Testing:** Jest, React Testing Library, Cypress  
-**Prerequisite:** Node.js
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    gap: '10px',
+    padding: '20px',
+    border: '2px dashed #007BFF',
+    borderRadius: '5px',
+    backgroundColor: '#f8f9fa'
+  },
+  fileInput: {
+    cursor: 'pointer',
+    padding: '10px',
+    border: '1px solid #007BFF',
+    borderRadius: '5px',
+    backgroundColor: '#ffffff'
+  },
+  button: {
+    padding: '10px 20px',
+    border: 'none',
+    borderRadius: '5px',
+    backgroundColor: '#007BFF',
+    color: '#ffffff',
+    cursor: 'pointer'
+  }
+};
 
-### 3. Prerequisite: Node.js
-
-**Description:** Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. It allows developers to run JavaScript on the server side and is used for the development and build processes of the React.js project.
-
-**Role in the Project:**
-- **Development Environment:** Node.js provides the runtime environment for tools like Vite, enabling the development server, hot module replacement (HMR), and other development features.
-- **Package Management:** Node.js includes npm (Node Package Manager) or can be used with yarn, which manages the project's dependencies and scripts.
-- **Build Process:** Node.js runs the build scripts that compile and bundle the React application for production.
-
-### 4. Component Hierarchy
-
-#### 4.1. App Component
-
-- **Description:** The root component of the application.
-- **Responsibilities:** 
-  - Initialize global state (Redux store or Context).
-  - Set up routing.
-  - Provide a global layout structure (e.g., header, footer).
-
-#### 4.2. Layout Components
-
-- **Header:**
-  - **Description:** Displays the application header with navigation links.
-  - **Responsibilities:** Provide navigation to different parts of the application, show user profile and logout options.
-- **Footer:**
-  - **Description:** Displays the application footer.
-  - **Responsibilities:** Provide links to additional resources, copyright information.
-- **Sidebar:**
-  - **Description:** Optional component for additional navigation or quick access to features.
-  - **Responsibilities:** Provide quick access to various sections of the application (e.g., Dashboard, Profile).
-
-#### 4.3. Pages
-
-- **HomePage:**
-  - **Description:** Landing page with an overview of the application.
-  - **Responsibilities:** Introduce the application, provide links to login or register.
-- **LoginPage:**
-  - **Description:** User authentication page.
-  - **Responsibilities:** Allow users to log in to their accounts.
-- **RegisterPage:**
-  - **Description:** User registration page.
-  - **Responsibilities:** Allow new users to create accounts.
-- **DashboardPage:**
-  - **Description:** Main page for logged-in users to manage tasks.
-  - **Responsibilities:** Display a list of tasks, provide options to create, edit, and delete tasks.
-- **TaskDetailsPage:**
-  - **Description:** Page to view and edit task details.
-  - **Responsibilities:** Show detailed information about a task, allow editing and updating.
-- **ProfilePage:**
-  - **Description:** User profile management page.
-  - **Responsibilities:** Allow users to view and update their profile information.
-
-#### 4.4. Shared Components
-
-- **Button:**
-  - **Description:** Reusable button component.
-  - **Responsibilities:** Provide a consistent button UI across the application.
-- **Input:**
-  - **Description:** Reusable input component.
-  - **Responsibilities:** Provide consistent styling and validation for input fields.
-- **Modal:**
-  - **Description:** Reusable modal dialog component.
-  - **Responsibilities:** Display overlay dialogs for various actions (e.g., confirming deletion).
-- **Loader:**
-  - **Description:** Reusable loading spinner.
-  - **Responsibilities:** Indicate loading states throughout the application.
-
-#### 4.5. Feature Components
-
-- **TaskList:**
-  - **Description:** Component to display a list of tasks.
-  - **Responsibilities:** Fetch and render a list of tasks, handle task selection and actions.
-- **TaskItem:**
-  - **Description:** Component to display a single task item.
-  - **Responsibilities:** Show task details, provide actions for editing or deleting the task.
-- **TaskForm:**
-  - **Description:** Form for creating and editing tasks.
-  - **Responsibilities:** Handle input for task details, validate and submit task data.
-
-### 5. State Management
-
-#### 5.1. Global State (using Redux)
-
-- **Auth Slice:**
-  - **Description:** Manages authentication state.
-  - **State:** user, isAuthenticated, loading, error.
-  - **Actions:** login, logout, register, loadUser.
-- **Task Slice:**
-  - **Description:** Manages tasks state.
-  - **State:** tasks, loading, error.
-  - **Actions:** fetchTasks, addTask, updateTask, deleteTask.
-- **User Slice:**
-  - **Description:** Manages user profile state.
-  - **State:** userProfile, loading, error.
-  - **Actions:** fetchUserProfile, updateUserProfile.
-
-### 6. API Integration
-
-- **API Service:**
-  - **Description:** A centralized service for making API calls using Axios.
-  - **Responsibilities:** Handle HTTP requests and responses, manage error handling.
-- **Endpoints:**
-  - `/api/auth/login`: User login.
-  - `/api/auth/register`: User registration.
-  - `/api/tasks`: CRUD operations for tasks.
-  - `/api/users/profile`: Fetch and update user profile.
-
-### 7. Routing
-
-- **Public Routes:**
-  - **Description:** Routes accessible to all users.
-  - `/login`: LoginPage
-  - `/register`: RegisterPage
-- **Private Routes:**
-  - **Description:** Routes accessible only to authenticated users.
-  - `/dashboard`: DashboardPage
-  - `/task/:id`: TaskDetailsPage
-  - `/profile`: ProfilePage
-
-### 8. UI/UX Design
-
-- **Responsive Design:**
-  - **Description:** Ensure the application is fully responsive across different devices.
-  - **Responsibilities:** Use CSS media queries and responsive design principles.
-- **Consistent Theme:**
-  - **Description:** Use Material-UI for a consistent look and feel.
-  - **Responsibilities:** Apply a theme across all components, ensure consistency in colors, typography, and spacing.
-- **Accessibility:**
-  - **Description:** Ensure the application meets accessibility standards.
-  - **Responsibilities:** Use ARIA labels, ensure keyboard navigability, and support screen readers.
-
-### 9. Development Workflow
-
-1. **Setup:**
-   - **Tasks:** Initialize the project using Vite. Install dependencies (React, Redux, React Router, Axios, Material-UI, React Hook Form, Jest, Cypress).
-
-2. **Development:**
-   - **Tasks:** Implement the component hierarchy. Integrate state management with Redux. Set up routing with React Router. Create shared components. Develop feature components and pages. Integrate API services. Ensure responsiveness and accessibility.
-
-3. **Testing:**
-   - **Tasks:** Write unit tests for components. Write integration tests for API services. Perform end-to-end testing using a tool like Cypress.
-
-4. **Deployment:**
-   - **Tasks:** Configure build and deployment scripts. Deploy to a hosting service (e.g., Vercel, Netlify).
-
-### 10. Tools and Technologies
-
-- **Code Editor:** Visual Studio Code
-- **Version Control:** Git
-- **CI/CD:** GitHub Actions
-- **Testing Libraries:** Jest, React Testing Library
-- **Linting and Formatting:** ESLint, Prettier
-
----
-
-This comprehensive high-level design document provides a detailed outline of the architecture, components, and workflows for the React.js project, ensuring a clear and organized approach to development.
+export default FileUpload;
