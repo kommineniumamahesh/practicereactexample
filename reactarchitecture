@@ -1,72 +1,69 @@
-// FileUpload.jsx
-import React, { useState } from 'react';
-import * as XLSX from 'xlsx';
+Sure, here are the acceptance criteria converted to *Given-When-Then* format:
 
-const FileUpload = () => {
-  const [jsonData, setJsonData] = useState(null);
+---
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      readFile(file);
-    }
-  };
+**Scenario 1: Search by Date of Creation**
 
-  const readFile = (file) => {
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      const binaryStr = event.target.result;
-      const workbook = XLSX.read(binaryStr, { type: 'binary' });
-      const sheetName = workbook.SheetNames[0];
-      const worksheet = workbook.Sheets[sheetName];
-      const json = XLSX.utils.sheet_to_json(worksheet);
-      setJsonData(json);
-    };
-    reader.readAsBinaryString(file);
-  };
+**Given**: A FLU user is on the search page \
+**When**: The user selects a date range for the creation date \
+**Then**: The system should display records created within the specified date range
 
-  const handleShowJson = () => {
-    if (jsonData) {
-      alert(JSON.stringify(jsonData, null, 2));
-    } else {
-      alert("No data available. Please upload a file first.");
-    }
-  };
+---
 
-  return (
-    <div style={styles.container}>
-      <input type="file" accept=".xlsx, .xls" onChange={handleFileChange} style={styles.fileInput} />
-      <button onClick={handleShowJson} style={styles.button}>Show JSON</button>
-    </div>
-  );
-};
+**Scenario 2: Search by Last Modified Date**
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: '10px',
-    padding: '20px',
-    border: '2px dashed #007BFF',
-    borderRadius: '5px',
-    backgroundColor: '#f8f9fa'
-  },
-  fileInput: {
-    cursor: 'pointer',
-    padding: '10px',
-    border: '1px solid #007BFF',
-    borderRadius: '5px',
-    backgroundColor: '#ffffff'
-  },
-  button: {
-    padding: '10px 20px',
-    border: 'none',
-    borderRadius: '5px',
-    backgroundColor: '#007BFF',
-    color: '#ffffff',
-    cursor: 'pointer'
-  }
-};
+**Given**: A FLU user is on the search page \
+**When**: The user selects a date range for the last modified date \
+**Then**: The system should display records modified within the specified date range
 
-export default FileUpload;
+---
+
+**Scenario 3: Search by Status**
+
+**Given**: A FLU user is on the search page \
+**When**: The user selects a specific status (e.g., active, archived) \
+**Then**: The system should display records that match the selected status
+
+---
+
+**Scenario 4: Search by Assigned User or Team**
+
+**Given**: A FLU user is on the search page \
+**When**: The user selects an assigned user or team \
+**Then**: The system should display records assigned to the selected user or team
+
+---
+
+**Scenario 5: Advanced Filtering Options**
+
+**Given**: A FLU user is on the search page \
+**When**: The user applies multiple search criteria (e.g., FLU + Status + Date Range)\
+**Then**: The system should display records that match all the selected criteria
+
+---
+
+**Scenario 6: Save Search Queries**
+
+**Given**: A FLU user has performed a specific search \
+**When**: The user chooses to save the search query \
+**Then**: The system should save the search query for later use
+
+---
+
+**Scenario 7: Export Search Results**
+
+**Given**: A FLU user has search results displayed \
+**When**: The user chooses to export the results \
+**Then**: The system should provide options to export the search results in various formats (Excel, CSV, PDF)
+
+---
+
+**Scenario 8: Search by Tags or Keywords**
+
+**Given**: A FLU user is on the search page \
+**When**: The user enters tags or keywords associated with the records \
+**Then**: The system should display records that match the entered tags or keywords
+
+---
+
+These scenarios will help to ensure that all specified functionalities are covered and working as intended.
