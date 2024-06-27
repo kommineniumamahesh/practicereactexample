@@ -1,1 +1,175 @@
-hi
+
+### FR1
+
+1. **Given** GES needs to manage dropdown values without technical support, **when** a new value needs to be added to a dropdown list, **then** the system should allow GES to add the new value promptly.
+2. **Given** GES needs to manage dropdown values without technical support, **when** an existing value needs to be updated in a dropdown list, **then** the system should allow GES to update the value efficiently.
+3. **Given** GES needs to manage dropdown values without technical support, **when** a value needs to be deleted from a dropdown list, **then** the system should allow GES to delete the value without delay.
+4. **Given** GES needs to manage dropdown values without technical support, **when** GES requests to view all current values in a dropdown list, **then** the system should display the values accurately and completely.
+5. **Given** GES needs to manage dropdown values without technical support, **when** GES performs bulk updates to multiple dropdown values, **then** the system should facilitate bulk operations efficiently.
+
+### FR2
+
+1. **Given** values have previously been entered into the UI dropdown list, **when** a user selects a value from the list, **then** the system should store the selected value.
+2. **Given** values have previously been entered into the UI dropdown list, **when** a value is removed from the dropdown list, **then** the system should ensure the stored value is not deleted or changed.
+3. **Given** values have previously been entered into the UI dropdown list, **when** a user retrieves their stored selection, **then** the system should display the stored value even if it is no longer in the dropdown list.
+4. **Given** values have previously been entered into the UI dropdown list, **when** a value is updated in the dropdown list, **then** the system should not change the previously stored selections.
+5. **Given** values have previously been entered into the UI dropdown list, **when** the dropdown list is refreshed, **then** the system should preserve the integrity of stored selections.
+
+### FR3
+
+1. **Given** GES needs to retain assessment data of individuals who have left the company, **when** an individual's assessment data is stored, **then** the system should store the name and email of the person.
+2. **Given** GES needs to retain assessment data of individuals who have left the company, **when** an individual leaves the company, **then** the system should ensure their assessment data is not deleted.
+3. **Given** GES needs to retain assessment data of individuals who have left the company, **when** a record is accessed, **then** the system should display the names and emails of individuals who completed the assessments.
+4. **Given** GES needs to retain assessment data of individuals who have left the company, **when** a report is generated, **then** the system should include data of individuals who have left the company.
+5. **Given** GES needs to retain assessment data of individuals who have left the company, **when** data is archived, **then** the system should ensure that all assessment data, including names and emails, is retained.
+
+### FR4
+
+1. **Given** dropdown or pick list values in the system, **when** the values are displayed, **then** they should be in ascending alphabetical order (a-z).
+2. **Given** dropdown or pick list values in the system, **when** the values are displayed, **then** they should be in ascending numeric order (1-999999).
+3. **Given** dropdown or pick list values in the system, **when** new values are added, **then** the system should automatically sort the values in ascending order.
+4. **Given** dropdown or pick list values in the system, **when** values are updated, **then** the system should re-sort the values in ascending order.
+5. **Given** dropdown or pick list values in the system, **when** values are deleted, **then** the remaining values should be re-sorted in ascending order.
+
+### FR5
+
+1. **Given** FLU users are performing FLU assessments, **when** they need to update product information, **then** the system should allow them to edit the FLUs lineage records.
+2. **Given** FLU users are performing FLU assessments, **when** they need to add new product information, **then** the system should facilitate the addition of new FLU lineage records.
+3. **Given** FLU users are performing FLU assessments, **when** they need to delete outdated product information, **then** the system should allow them to delete the FLUs lineage records.
+4. **Given** FLU users are performing FLU assessments, **when** they need to view existing product information, **then** the system should display the FLUs lineage records.
+5. **Given** FLU users are performing FLU assessments, **when** they need to make bulk updates to product information, **then** the system should support bulk editing of FLUs lineage records.
+
+### FR6
+
+1. **Given** a FLU user is performing a FLU assessment, **when** they want to view their previous assessment, **then** they should be able to access the previous assessment before updating the current one.
+2. **Given** a FLU user is performing a FLU assessment, **when** they want to compare the current assessment with the previous one, **then** they should be able to view both assessments simultaneously.
+3. **Given** a FLU user is performing a FLU assessment, **when** they want to see changes made in the current assessment, **then** they should be able to view the previous assessment for reference.
+4. **Given** a FLU user is performing a FLU assessment, **when** they are unsure about the updates, **then** they should be able to refer to the previous assessment to ensure accuracy.
+5. **Given** a FLU user is performing a FLU assessment, **when** they are finalizing the current assessment, **then** they should be able to review the previous assessment to confirm all necessary updates are made.
+
+### FR7
+
+1. **Given** a FLU user makes changes to a record, **when** they save the changes, **then** the system should capture the name of the FLU user making the changes.
+2. **Given** a FLU user makes changes to a record, **when** they save the changes, **then** the system should capture the email address of the FLU user making the changes.
+3. **Given** a FLU user makes changes to a record, **when** they save the changes, **then** the system should log the user details for auditing purposes.
+4. **Given** a FLU user makes changes to a record, **when** they save the changes, **then** the system should update the record with the user's name and email.
+5. **Given** a FLU user makes changes to a record, **when** they save the changes, **then** the system should ensure the user details are stored securely.
+
+### FR8
+
+1. **Given** a FLU user changes a record, **when** they save the changes, **then** the system should capture the date of the change.
+2. **Given** a FLU user changes a record, **when** they save the changes, **then** the system should capture the time of the change.
+3. **Given** a FLU user changes a record, **when** they save the changes, **then** the system should log the timestamp for auditing purposes.
+4. **Given** a FLU user changes a record, **when** they save the changes, **then** the system should update the record with the change date and time.
+5. **Given** a FLU user changes a record, **when** they save the changes, **then** the system should ensure the timestamp is stored securely.
+
+### FR9
+
+1. **Given** data is entered by a FLU user, **when** the data needs to be available for reporting, **then** the system should capture all entered data.
+2. **Given** data is entered by a FLU user, **when** the data needs to be available for reporting, **then** the system should store all entered data.
+3. **Given** data is entered by a FLU user, **when** the data needs to be available for reporting, **then** the system should ensure all data is captured accurately.
+4. **Given** data is entered by a FLU user, **when** the data needs to be available for reporting, **then** the system should allow the data to be downloaded.
+5. **Given** data is entered by a FLU user, **when** the data needs to be available for reporting, **then** the system should allow the data to be used in reports.
+
+### FR10
+
+1. **Given** the FLU assessment fields are being viewed, **when** the fields are displayed, **then** the system should show ES Only fields in the 'GES view'.
+2. **Given** the FLU assessment fields are being viewed, **when** the fields are displayed, **then** the system should show AML Only fields in the 'AML view'.
+3. **Given** the FLU assessment fields are being viewed, **when** the fields are displayed, **then** the system should show AML Both fields in both the 'GES view' and the 'AML view'.
+4. **Given** the FLU assessment fields are being viewed, **when** the fields are displayed, **then** the system should ensure each field is in the correct view based
+
+
+
+4. **Given** the FLU assessment fields are being viewed, **when** the fields are displayed, **then** the system should ensure each field is in the correct view based on its designation.
+5. **Given** the FLU assessment fields are being viewed, **when** the user switches between the 'GES view' and the 'AML view', **then** the system should display the corresponding fields correctly in each view.
+
+### FR11
+
+1. **Given** drop down values are entered in the system, **when** a dropdown is displayed, **then** the values should appear in ascending alphabetical order (a-z).
+2. **Given** drop down values are entered in the system, **when** a dropdown is displayed, **then** the values should appear in ascending numeric order (1-999999).
+3. **Given** drop down values are entered in the system, **when** new values are added, **then** the system should automatically sort the values in ascending order.
+4. **Given** drop down values are entered in the system, **when** values are updated, **then** the system should re-sort the values in ascending order.
+5. **Given** drop down values are entered in the system, **when** values are deleted, **then** the remaining values should be re-sorted in ascending order.
+
+### FR12
+
+1. **Given** data is updated by FLU users, **when** the update is saved, **then** the system should record the name and email of the user who made the change.
+2. **Given** data is updated by FLU users, **when** the update is saved, **then** the system should record the date and time of the update.
+3. **Given** data is updated by FLU users, **when** the update is saved, **then** the system should store the previous version of the data.
+4. **Given** data is updated by FLU users, **when** the update is saved, **then** the system should allow users to view a history of changes.
+5. **Given** data is updated by FLU users, **when** the update is saved, **then** the system should allow users to revert to a previous version of the data.
+
+### FR13
+
+1. **Given** a FLU user is performing a FLU assessment, **when** they update product information, **then** the system should allow them to edit the FLUs lineage records.
+2. **Given** a FLU user is performing a FLU assessment, **when** they need to add new product information, **then** the system should facilitate the addition of new FLU lineage records.
+3. **Given** a FLU user is performing a FLU assessment, **when** they need to delete outdated product information, **then** the system should allow them to delete the FLUs lineage records.
+4. **Given** a FLU user is performing a FLU assessment, **when** they need to view existing product information, **then** the system should display the FLUs lineage records.
+5. **Given** a FLU user is performing a FLU assessment, **when** they need to make bulk updates to product information, **then** the system should support bulk editing of FLUs lineage records.
+
+### FR14
+
+1. **Given** a FLU user is performing a FLU assessment, **when** they update product information, **then** the system should allow them to save the updated information.
+2. **Given** a FLU user is performing a FLU assessment, **when** they view product information, **then** the system should display the most recent updates.
+3. **Given** a FLU user is performing a FLU assessment, **when** they delete product information, **then** the system should remove the information from the FLU lineage records.
+4. **Given** a FLU user is performing a FLU assessment, **when** they save a record, **then** the system should validate the data before saving.
+5. **Given** a FLU user is performing a FLU assessment, **when** they make bulk updates, **then** the system should apply all changes consistently and accurately.
+
+### FR15
+
+1. **Given** FLU users make changes to product information, **when** they need to update data, **then** the system should allow them to edit FLU lineage records.
+2. **Given** FLU users make changes to product information, **when** they need to add new data, **then** the system should allow them to add new FLU lineage records.
+3. **Given** FLU users make changes to product information, **when** they need to delete data, **then** the system should allow them to delete FLU lineage records.
+4. **Given** FLU users make changes to product information, **when** they need to view data, **then** the system should display the FLU lineage records.
+5. **Given** FLU users make changes to product information, **when** they need to make bulk changes, **then** the system should support bulk updates to FLU lineage records.
+
+### FR16
+
+1. **Given** FLU users are performing assessments, **when** they need to update product information, **then** the system should allow them to edit the FLUs lineage records.
+2. **Given** FLU users are performing assessments, **when** they need to add new product information, **then** the system should facilitate the addition of new FLU lineage records.
+3. **Given** FLU users are performing assessments, **when** they need to delete outdated product information, **then** the system should allow them to delete the FLUs lineage records.
+4. **Given** FLU users are performing assessments, **when** they need to view existing product information, **then** the system should display the FLUs lineage records.
+5. **Given** FLU users are performing assessments, **when** they need to make bulk updates to product information, **then** the system should support bulk editing of FLUs lineage records.
+
+### FR17
+
+1. **Given** a FLU user is performing a FLU assessment, **when** they need to view previous assessments, **then** they should be able to access past assessments before updating the current one.
+2. **Given** a FLU user is performing a FLU assessment, **when** they want to compare current and past assessments, **then** they should be able to view both simultaneously.
+3. **Given** a FLU user is performing a FLU assessment, **when** they need to verify changes, **then** they should be able to refer to previous assessments.
+4. **Given** a FLU user is performing a FLU assessment, **when** they are unsure about updates, **then** they should be able to view previous assessments for reference.
+5. **Given** a FLU user is performing a FLU assessment, **when** they finalize the assessment, **then** they should be able to review previous assessments to ensure all necessary updates are made.
+
+
+
+### Home Page Scenarios
+
+1. **Given** a user logs into the system, **when** they reach the home page, **then** they should see a dashboard overview of their assessments.
+2. **Given** a user logs into the system, **when** they reach the home page, **then** they should have access to navigation links to different sections of the system.
+3. **Given** a user logs into the system, **when** they reach the home page, **then** they should see notifications and alerts related to their assessments.
+4. **Given** a user logs into the system, **when** they reach the home page, **then** they should be able to quickly access recently accessed assessments.
+5. **Given** a user logs into the system, **when** they reach the home page, **then** they should see a summary of their tasks and pending actions.
+
+### Export Capabilities Scenarios
+
+1. **Given** a FLU user needs to report on assessment data, **when** they select the export option, **then** the system should allow them to export the data in a specified format (e.g., CSV, Excel).
+2. **Given** a FLU user needs to share assessment data, **when** they use the export feature, **then** the system should generate a file that can be easily shared with others.
+3. **Given** a FLU user needs to analyze assessment data, **when** they export the data, **then** the system should include all relevant fields and records in the export.
+4. **Given** a FLU user needs to keep a backup of assessment data, **when** they select the export option, **then** the system should allow them to save the data locally.
+5. **Given** a FLU user needs to customize the data export, **when** they use the export feature, **then** the system should allow them to select specific fields and filters for the export.
+
+### Upload Capabilities Scenarios
+
+1. **Given** a FLU user needs to update multiple records quickly, **when** they use the upload feature, **then** the system should allow them to upload a file containing the updates.
+2. **Given** a FLU user needs to add new records, **when** they use the upload feature, **then** the system should process the file and add the new records to the database.
+3. **Given** a FLU user needs to correct errors in existing records, **when** they use the upload feature, **then** the system should apply the corrections from the uploaded file.
+4. **Given** a FLU user needs to upload data, **when** they select the upload option, **then** the system should validate the file format and content before processing.
+5. **Given** a FLU user needs to upload data, **when** they encounter errors in the upload, **then** the system should provide detailed error messages to help the user correct the issues.
+
+
+### Submit Scenarios
+
+1. **Given** a FLU user has completed an assessment, **when** they select the submit option, **then** the system should validate that all required fields are completed.
+2. **Given** a FLU user needs to submit an assessment for review, **when** they click the submit button, **then** the system should save the assessment with a 'Submit' status and notify GES for review.
+3. **Given** a FLU user wants to submit their changes, **when** they click submit, **then** the system should display a confirmation message: "Once the records are submitted to GES, they cannot be updated until GES completes their review. Do you want to proceed?" with Yes and No options.
+4. **Given** a FLU user submits an assessment, **when** the submission is processed, **then** the system should lock the record from further editing by the FLU user.
+5. **Given** a FLU user submits an assessment, **when** the submission is successful, **then** the system should log the submission date, time, and user details for audit purposes.
