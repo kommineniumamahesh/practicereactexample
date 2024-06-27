@@ -1,1 +1,326 @@
-hi
+
+### FR1:
+**Given** GES has the need to manage the values that appear in the dropdown fields without requiring technical support,  
+**When** the user needs to add, update, or delete values in the dropdown list,  
+**Then** the system should allow GES to perform these actions in a timely manner.
+
+### FR2:
+**Given** values have previously been entered into the UI dropdown list,  
+**When** the user does not want these values to be deleted or changed even if they are later removed from the dropdown list,  
+**Then** the system should store the values selected, ensuring they are not deleted or changed when the dropdown fields are modified.
+
+### FR3:
+**Given** GES needs to retain the data of individuals who completed assessments even after they have left the company,  
+**When** an individual's assessment data is stored,  
+**Then** the system should store the names and emails of the person, ensuring no data is deleted after they have left the company.
+
+### FR4:
+**Given** dropdown or pick list values in the system,  
+**When** these lists are displayed,  
+**Then** they should be in ascending alphabetical order (a–z) or numeric order (1–999999).
+
+### FR5:
+**Given** FLU users are performing FLU assessments and need to provide updates or changes to products,  
+**When** the FLU user needs to edit the FLUs lineage records,  
+**Then** the system should allow the FLU user to make these edits to provide the necessary updates/changes.
+
+
+
+
+### FR6
+**Given:** A FLU user is performing a FLU assessment.
+**When:** They want to view their previous assessment.
+**Then:** They should have the ability to view the previous assessment before and/or while they are updating their current assessment for submission, allowing them to see what changes they need to make or have already made on the current assessment.
+
+### FR7
+**Given:** A FLU user makes changes to a record.
+**When:** They save their changes.
+**Then:** The system should capture the name and email address of the FLU user making changes to the record.
+
+### FR8
+**Given:** A FLU user changes a record.
+**When:** They save the changes.
+**Then:** The system should capture the date and time on each changed record.
+
+### FR9
+**Given:** Data is entered by a FLU user.
+**When:** The data needs to be available for reporting.
+**Then:** The system should capture and store all data entered by the FLU user in a way that it can be downloaded and/or used on reports.
+
+### FR10
+**Given:** The FLU Assessment fields are being viewed.
+**When:** The fields are displayed in the system.
+**Then:** The FLU Assessment fields should be broken into two separate views.
+
+### FR10.1
+**Given:** An ES Only field is present on the FLU assessment tab of the fields requirements file.
+**When:** Viewing this field in the system.
+**Then:** The field should appear in the 'GES view'.
+
+### FR10.2
+**Given:** An AML Only field is present on the FLU assessment tab of the fields requirements file.
+**When:** Viewing this field in the system.
+**Then:** The field should appear in the 'AML view'.
+
+### FR10.3
+**Given:** An AML Both field is present on the FLU assessment tab of the fields requirements file.
+**When:** Viewing this field in the system.
+**Then:** The field should appear in both the GES View and the AML View.
+
+### FR11
+**Given:** A FLU user is working between the FLU Point of Contact (POC), FLU Delegate assessment user, AML, and the GES user.
+**When:** The workflow process is being carried out.
+**Then:** The system should provide a simple workflow that allows the FLU user to save their changes as a draft, submit their changes to GES for review, allow GES to review and send it back to the FLU with comments, and allow GES to review and approve the submitted assessment.
+
+
+
+
+**FR11.1**
+
+**Given**:
+- The FLU user needs to save their changes/updates in a 'Draft' status.
+
+**When**:
+- The changes/updates are being made.
+  
+**Then**:
+- The system must allow the user to save the changes in 'Draft' status, even if required fields are not completed.
+- The user must be able to return at a later date/time to save their changes, and make additional updates before submitting their changes to GES for review/approval. 
+
+**FR11.2**
+
+**Given**:
+- The FLU user has saved their changes/updates in a 'Draft' status.
+
+**When**:
+- The user wants to access and update the changes.
+
+**Then**:
+- The system needs to save the changes so the user can access and update at a later date/time.
+- Changes are not saved to the official database (DB) records.
+- Changes can be seen by the FLU.
+- Changes cannot be reviewed for approval by GES.
+- The FLU is able to make changes to records.
+- The system allows the user to save changes without entering required fields.
+
+**FR11.3.1**
+
+**Given**:
+- The FLU user needs to save their changes/updates in 'Submit' status.
+
+**When**:
+- All required fields are completed.
+
+**Then**:
+- The user can save their changes in 'Submit' status.
+- The records can then be submitted to GES for review/approval.
+
+**FR11.3.2**
+
+**Given**: 
+- All required fields must be completed for the 'Submit' status.
+
+**When**:
+- The user is ready to save their changes.
+
+**Then**:
+- The FLU user must be able to save their changes in 'Submit' status.
+- This ensures the records submitted to GES are complete and ready for review.
+
+
+
+
+
+###(FR11.3.3)
+**Given:**  
+- The FLU user has saved their changes/updates in a 'Submit' status.
+
+**When:**  
+- The system processes these changes.
+
+**Then:**  
+1. The user cannot update the submitted records.
+2. Changes are not saved to the official database (DB) records.
+3. Changes can be seen by the FLU.
+4. Changes can be viewed by GES.
+5. GES is able to update the records review status.
+6. GES is able to add comments to the FLU and/or make internal comments to the records.
+7. FLU is not able to make changes to records.
+
+###  (FR11.3.4)
+**Given:**  
+- The user selects the 'Submit' state.
+
+**When:**  
+- The system needs a confirmation message to pop up.
+
+**Then:**  
+- The system displays a message: "Once the records are submitted to GES they cannot be updated until GES completes their review. Do you want to proceed?"  
+- The user has the option to select Yes or No.  
+  - If Yes: The system continues with the submit request.
+  - If No: The system does not move the records to the submit status.
+
+### (FR11.4.1)
+**Given:**  
+- The GES user is making changes/updates in a 'Draft' status.
+
+**When:**  
+- The system processes these changes.
+
+**Then:**  
+1. The changes are saved so the user can access and update them at a later date/time.
+2. Changes are not saved to the official database (DB) records.
+3. Changes/comments made by GES cannot be seen by the FLU.
+4. Changes can be reviewed for approval by GES.
+5. FLU is not able to make changes to records.
+
+###  (FR11.4.2)
+**Given:**  
+- The GES user saves their changes/updates in a 'Draft' status.
+
+**When:**  
+- The system processes these changes.
+
+**Then:**  
+1. The changes are saved so the user can access and update them at a later date/time.
+2. Changes are not saved to the official database (DB) records.
+3. Changes/comments made by GES cannot be seen by the FLU.
+4. Changes can be reviewed for approval by GES.
+5. FLU is not able to make changes to records.
+
+
+
+
+
+### FR11.5.2
+
+**Scenario: GES user saves changes/updates in 'Return to FLU' status**
+
+**Given:**
+- The GES user has made changes or updates.
+- The current status is 'Return to FLU'.
+
+**When:**
+- The GES user saves their changes/updates.
+
+**Then:**
+1. The GES user cannot update the returned records.
+2. The changes are not saved to the official DB records.
+3. The changes can be seen by the FLU.
+4. The changes can be viewed by GES.
+5. The FLU is able to update/make changes to the records.
+
+### FR11.6.1
+
+**Scenario: GES user saves changes/updates in 'Approved' status**
+
+**Given:**
+- The GES user has made changes or updates.
+- The current status is 'Approved'.
+
+**When:**
+- The GES user saves their changes/updates.
+
+**Then:**
+1. The GES user cannot update the approved records.
+2. The changes are saved to the official DB records.
+3. The changes can be seen by the FLU.
+4. The changes can be viewed by GES.
+5. The FLU is able to update/make changes to the records.
+6. GES comments, GES internal comments, and FLU response comments are removed from the active records but can be seen on reports and audit trail.
+
+### FR11.6.2
+
+**Scenario: FLU user updates multiple records before saving changes**
+
+**Given:**
+- The FLU user needs to update multiple records.
+
+**When:**
+- The FLU user updates the records and saves the changes.
+
+**Then:**
+- The system allows the FLU user to update multiple records before saving changes, facilitating efficient record management.
+
+
+
+
+### Scenario for Requirement FR12:
+
+**Given**: A Financial Line of Business (FLU) user has multiple records that need to be updated.  
+**When**: The FLU user utilizes the feature to update multiple records before saving their changes.  
+**Then**: The FLU user can make their updates more quickly and efficiently, which is crucial since some FLU users have over 100 records to review and/or update.
+
+---
+
+### Scenario for Requirement FR13:
+
+**Given**: A FLU user needs to review and provide an assessment of selected records.  
+**When**: The FLU user selects multiple records and provides an assessment of these records with or without making changes.  
+**Then**: The user's name and email, along with the date and time, will be captured and saved with the records, allowing GES to verify that the FLU user reviewed the records and provided an assessment of records that did not require any changes.
+
+---
+
+### Scenario for Requirement FR14.1:
+
+**Given**: A FLU user needs to add new product records to the system.  
+**When**: The FLU user inputs data in the required fields for the new product records.  
+**Then**: The system saves the new product records, enabling the documentation of new products added by the FLU users.
+
+---
+
+### Scenario for Requirement FR14.2:
+
+**Given**: A FLU user needs to document multiple downstream AITs (Application Interface Tables) related to their records.  
+**When**: The FLU user enters information about downstream AITs with product relationships that may flow through multiple systems before being sent for sanctions screening.  
+**Then**: The system documents the complete end-to-end flow of the product/relationship, capturing data in the fields for Downstream AIT, Downstream System Name, and Downstream AIT Application owner, while allowing for at least 5 'hops' between systems.
+
+
+
+### Scenario for Requirement FR14.2:
+
+**Given**: A FLU user adds new records to the system.  
+**When**: The FLU user saves the newly added records.  
+**Then**: The system assigns the action type "New" to these records, allowing GES to easily identify new products added by the FLU user.
+
+
+
+
+
+### FR14.3
+**Given** the action type of a record is set to 'New',
+**When** the record has not been reviewed or approved by GES,
+**Then** the action type of the record should remain as 'New'.
+
+### FR15.1
+**Given** a FLU user needs to locate their specific records,
+**When** the user performs a search,
+**Then** the system should allow the user to search on any combination of the following fields:
+   - FLU
+   - FLU LOB
+   - AIT Number (covering any field where the AIT Number can be entered)
+   - ESS Source File Name
+   - ETS Unit
+   - Name of the person that completed the last assessment
+   - Record Status
+   - Last Approved Date.
+
+### FR15.2
+**Given** a FLU user has entered search criteria,
+**When** the search is performed,
+**Then** the search results should display all records that match the search criteria.
+
+### FR15.3
+**Given** a new search is initiated,
+**When** the user accesses the search screen for the first time,
+**Then** the search criteria fields should be blank by default.
+
+### FR16.1
+**Given** the need to maintain the values in the dropdown fields,
+**When** the fields are not updated by a system,
+**Then** the user with the appropriate permissions should be able to add, change, and delete values from the Data Type field, except for the AIT# dropdown field which is driven by AppHQ.
+
+### FR16.2
+**Given** dropdown field values have been updated,
+**When** a user modifies the dropdown field values,
+**Then** the system should maintain a full audit trail of all changes made to the dropdown fields.
